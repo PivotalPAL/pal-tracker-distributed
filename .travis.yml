@@ -21,6 +21,7 @@ jobs:
       before_script:
         - mysql -uroot < databases/create_databases.sql
         - ./gradlew testMigrate
+        - echo $TRAVIS_BUILD_NUMBER
       script: ./gradlew clean build
       before_deploy:
         - git config --local user.name "Travis CI"
